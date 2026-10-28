@@ -1,0 +1,28 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#0089DC"
+    },
+    {
+      "name": "card_bg",
+      "value": "#0089DC"
+    },
+    {
+      "name": "card_text_primary",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "card_text_secondary",
+      "value": "#CCFFFFFF"
+    },
+    {
+      "name": "card_divider",
+      "value": "#33FFFFFF"
+    },
+    {
+      "name": "card_chip_bg",
+      "value": "#33FFFFFF"
+    }
+  ]
+}

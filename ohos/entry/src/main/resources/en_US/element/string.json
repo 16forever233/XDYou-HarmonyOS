@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "XDYou main module"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "XDYou"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "XDYou"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "XDYou desktop card"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "XDYou card"
+    },
+    {
+      "name": "widget_desc",
+      "value": "XDYou today's class card"
+    },
+    {
+      "name": "widget_display_name",
+      "value": "Today's Classes"
+    }
+  ]
+}

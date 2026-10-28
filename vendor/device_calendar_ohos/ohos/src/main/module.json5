@@ -1,0 +1,13 @@
+{
+  "module": {
+    "name": "device_calendar_ohos",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "requestPermissions": [
+      {"name" :  "ohos.permission.INTERNET"}
+    ]
+  }
+}

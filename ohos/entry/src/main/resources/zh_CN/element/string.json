@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "XDYou 主模块"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "XDYou"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "XDYou"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "XDYou 桌面卡片"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "XDYou 卡片"
+    },
+    {
+      "name": "widget_desc",
+      "value": "XDYou 今日课表卡片"
+    },
+    {
+      "name": "widget_display_name",
+      "value": "今日课表"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# hvigor / ohpm 构建产物（path 依赖会被原地构建），与其它 vendor fork 保持一致
+/node_modules
+/oh_modules
+/.preview
+/.idea
+/build
+/.cxx
+/.test
+/default
+**/oh-package-lock.json5
+**/BuildProfile.ets

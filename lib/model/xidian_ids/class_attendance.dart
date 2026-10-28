@@ -1,0 +1,184 @@
+// Copyright 2025 BenderBlog Rodriguez and contributors.
+// Copyright 2025 Traintime PDA authors.
+// SPDX-License-Identifier: MPL-2.0
+
+// ignore_for_file: constant_identifier_names
+
+import 'package:json_annotation/json_annotation.dart';
+part 'class_attendance.g.dart';
+
+enum AttendanceStatus { unknown, eligible, warning, ineligible }
+
+extension I18nString on AttendanceStatus {
+  String get i18nString {
+    switch (this) {
+      case AttendanceStatus.unknown:
+        return "class_attendance.course_state.unknown";
+      case AttendanceStatus.eligible:
+        return "class_attendance.course_state.eligible";
+      case AttendanceStatus.warning:
+        return "class_attendance.course_state.warning";
+      case AttendanceStatus.ineligible:
+        return "class_attendance.course_state.ineligible";
+    }
+  }
+}
+
+class ClassAttendance {
+  // 有无预警
+  final bool isWarning;
+
+  // 课程信息
+  final String courseName; // 课程名称 (课程 名称)
+  final String className; // 教学班名称 (教学班 名称)
+
+  // 考勤数据
+  final String checkInCount; // 签到 次数
+  final String personalLeave; // 事假 次数
+  final String sickLeave; // 病假 次数
+  final String officialLeave; // 公假 次数
+  final String absenceCount; // 旷课 次数
+  final String requiredCheckIn; // 应签 次数
+  final String attendanceRate; // 到课 率
+
+  // 学习进度/活动
+  final String readCount; // 已读 次数
+  final String unreadCount; // 未读 次数
+  final String accessCount; // 访问 次数
+  final String taskProgress; // 任务点 进度 (e.g., "0/4")
+  final String homeworkProgress; // 作业 进度 (e.g., "0/0")
+  final String examProgress; // 考试 进度 (e.g., "0/1")
+  final String discussionCount; // 讨论
+  final String materialCount; // 资料
+
+  // 采自课程信息网页
+  final String? courseId;
+  final String? clazzId;
+  final String? cpi;
+
+  const ClassAttendance({
+    required this.courseName,
+    required this.className,
+    required this.checkInCount,
+    required this.personalLeave,
+    required this.sickLeave,
+    required this.officialLeave,
+    required this.absenceCount,
+    required this.requiredCheckIn,
+    required this.attendanceRate,
+    required this.readCount,
+    required this.unreadCount,
+    required this.accessCount,
+    required this.taskProgress,
+    required this.homeworkProgress,
+    required this.examProgress,
+    required this.discussionCount,
+    required this.materialCount,
+    this.courseId,
+    this.clazzId,
+    this.cpi,
+    this.isWarning = false,
+  });
+
+  /// Calculate the attendance status based on total class times
+  /// Returns a translation key for the status
+  AttendanceStatus get attendanceStatus {
+    if (isWarning) return AttendanceStatus.ineligible;
+
+    final attendanceRatio = double.tryParse(
+      attendanceRate.replaceAll(" %", ""),
+    );
+    if (attendanceRatio == null) {
+      return AttendanceStatus.unknown;
+    } else if (attendanceRatio < 80.0) {
+      return AttendanceStatus.warning;
+    } else {
+      return AttendanceStatus.eligible;
+    }
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ClassAttendanceDetail {
+  final String? submittime;
+  final String createxxuid;
+  final int? userStatus;
+  final String creatorName;
+  final int activeid;
+  final String starttime;
+  final int? attendid;
+  final int activeType;
+  final String? name;
+  @JsonKey(name: "other_id")
+  final int otherId;
+  final int? updatetime;
+  final String createUid;
+  final int status;
+
+  ClassAttendanceDetail({
+    required this.submittime,
+    required this.createxxuid,
+    required this.userStatus,
+    required this.creatorName,
+    required this.activeid,
+    required this.starttime,
+    required this.attendid,
+    required this.activeType,
+    required this.name,
+    required this.otherId,
+    required this.updatetime,
+    required this.createUid,
+    required this.status,
+  });
+
+  String get signStatus {
+    switch (userStatus) {
+      case 0:
+        return "class_attendance.sign_status.absenceNotParticipating";
+      case 1:
+        return "class_attendance.sign_status.signed";
+      case 2:
+        return "class_attendance.sign_status.signedByTeacher";
+      case 4:
+        return "class_attendance.sign_status.personalLeave2";
+      case 5:
+        return "class_attendance.sign_status.absence";
+      case 7:
+        return "class_attendance.sign_status.sickLeave";
+      case 8:
+        return "class_attendance.sign_status.personalLeave";
+      case 9:
+        return "class_attendance.sign_status.late";
+      case 10:
+        return "class_attendance.sign_status.leaveEarly";
+      case 11:
+        return "class_attendance.sign_status.signExpiredy";
+      case 12:
+        return "class_attendance.sign_status.publicLeave";
+      default:
+        return "class_attendance.sign_status.absenceNotParticipating";
+    }
+  }
+
+  String get signName {
+    if (name != null) {
+      return name!;
+    } else {
+      switch (otherId) {
+        case 2:
+          return "class_attendance.sign_type.qr_code";
+        case 3:
+          return "class_attendance.sign_type.gesture";
+        case 4:
+          return "class_attendance.sign_type.position";
+        default:
+          return "class_attendance.sign_type.default";
+      }
+    }
+  }
+
+  factory ClassAttendanceDetail.fromJson(Map<String, dynamic> json) =>
+      _$ClassAttendanceDetailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ClassAttendanceDetailToJson(this);
+}

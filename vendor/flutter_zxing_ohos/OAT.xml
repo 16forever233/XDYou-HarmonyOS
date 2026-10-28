@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <oatconfig>
+        <licensefile></licensefile>
+        <policylist>
+            <policy desc="" name="projectPolicy">
+                <policyitem type="copyright" name="Hunan OpenValley Digital Industry Development Co., Ltd." path=".*" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed By OpenValley Digital Co., Ltd."/>
+                <policyitem type="license" name="MIT" path=".*" group="defaultGroup" filefilter="defaultPolicyFilter" desc="当前项目兼容此协议"/>
+            </policy>
+        </policylist>
+        <filefilterlist>
+            <filefilter name="copyrightPolicyFilter" desc="Filters for compatibility，license header policies">
+                <filteritem type="filename" name="LICENSE" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/ios/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/android/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/macos/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ios/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="android/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="macos/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filename" name="*.dart" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filename" name="*.yaml" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filename" name="*.lock" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name=".metadata" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filename" name="*.json5" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/.flutter-plugins" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/.flutter-plugins-dependencies" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="assets/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/.flutter-plugins" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/.flutter-plugins-dependencies" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/.metadata" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/.metadata" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/windows/runner/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="src/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/windows/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/linux/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/windows/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/src/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="scripts/update_ios_macos_src.sh" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="zxscanner/.*" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name=".gitmodules" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/.gitmodules" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name=".pubignore" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/ohos/.clang-tidy" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/ohos/.clangd" desc="flutter_zxing开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+            </filefilter>
+            <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
+                <filteritem type="filepath" name="example/ios/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/android/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/macos/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ios/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="android/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="macos/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.dart" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.yaml" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.lock" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name=".metadata" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="LICENSE" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.metadata" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.json5" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/.flutter-plugins" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/.flutter-plugins-dependencies" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="assets/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/.flutter-plugins*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/.flutter-plugins-dependencies" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="src/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/windows/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/windows/flutter/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/linux/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="example/windows/runner/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/src/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="scripts/update_ios_macos_src.sh" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="zxscanner/.*" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name=".gitmodules" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/.gitmodules" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name=".pubignore" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/ohos/.clang-tidy" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="ohos/example/ohos/.clangd" desc="flutter_zxing开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+            </filefilter>
+            <filefilter name="binaryFileTypePolicyFilter" desc="Filters for copyright header policies">
+                <filteritem type="filename" name="*.png|*.ttf|*.otf|*.so" desc="flutter_zxing开源库图片资源文件，协议为MIT"/>
+                <filteritem type="filepath" name="ohos/example/windows/runner/resources/.*" desc="flutter_zxing开源库图片资源文件，协议为MIT"/>
+                <filteritem type="filepath" name="example/windows/runner/resources/.*" desc="flutter_zxing开源库图片资源文件，协议为MIT"/>
+                <filteritem type="filepath" name="ohos/example/ohos/entry/src/main/resources/.*" desc="flutter_zxing开源库图片资源文件，协议为MIT"/>
+                <filteritem type="filepath" name="zxscanner/.*" desc="flutter_zxing开源库图片资源文件，协议为MIT"/>
+            </filefilter>
+        </filefilterlist>
+    </oatconfig>
+</configuration>

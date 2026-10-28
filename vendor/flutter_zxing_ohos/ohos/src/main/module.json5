@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "flutter_zxing",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "SWITCH": 1,
+  "TRANSLATE": [
+    {
+      "index": 1,
+      "minVelocity": 800,
+      "maxVelocity": 100000,
+      "frameRate": 90
+    },
+    {
+      "index": 2,
+      "minVelocity": 77,
+      "maxVelocity": 800,
+      "frameRate": 120
+    },
+    {
+      "index": 3,
+      "minVelocity": 46,
+      "maxVelocity": 77,
+      "frameRate": 90
+    },
+    {
+      "index": 4,
+      "minVelocity": 10,
+      "maxVelocity": 46,
+      "frameRate": 72
+    },
+    {
+      "index": 5,
+      "minVelocity": 0,
+      "maxVelocity": 10,
+      "frameRate": 60
+    }
+  ],
+  "SCALE": [],
+  "ROTATION": []
+}

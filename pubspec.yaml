@@ -1,0 +1,242 @@
+name: watermeter
+description: Another personal data assistant for XDU.
+publish_to: "none"
+version: 1.6.6+26166300
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  # State Management
+  signals: ^7.1.0
+  provider: ^6.1.5
+  get_it: ^9.2.1
+  # Network
+  dio: ^5.0.0
+  crypto: ^3.0.6
+  pointycastle: ^4.0.0
+  encrypter_plus: ^5.1.0
+  talker_flutter: ^5.0.0
+  talker_dio_logger: ^5.0.0
+  synchronized: ^3.1.0+1
+  pool: ^1.5.2
+  # Stroage Cache
+  shared_preferences: ^2.5.3
+  dio_cookie_manager: ^3.0.0
+  cookie_jar: ^4.0.3
+  path_provider: ^2.0.11
+  json_annotation: ^4.9.0
+  # Deal with html
+  html: ^0.15.4
+  charset_converter: ^2.2.1
+  # Homepage
+  infinite_scroll_pagination: ^5.1.1
+  sn_progress_dialog: ^1.1.3
+  fluttertoast: ^9.0.0
+  flex_color_scheme: ^8.3.0
+  # Others
+  url_launcher: ^6.1.6
+  time: ^2.1.5
+  auto_size_text: ^3.0.0
+  restart_app: ^1.7.3
+  calendar_date_picker2: ^3.0.0
+  # 上游 1.6.6 升到 ^4.0.0，但 4.x 要求 Dart ^3.12.0，而本项目工具链是
+  # Flutter-OH 3.41.10 / Dart 3.11.5（上游按 Flutter 3.44+ 写的）→ 保持 3.x。
+  # 上游 1.6.6 新增的 book_cover.dart 只用了 3.x 也有的 API，无需改代码。
+  cached_network_image: ^3.2.3
+  flutter_native_splash: ^2.3.1
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  package_info_plus: ^10.1.0
+  flutter_staggered_grid_view: ^0.7.0
+  styled_widget: ^0.4.1
+  file_picker_ohos:
+    # 本地 vendor（原为 git 10.3.8-ohos-1.0.0）：修上游「保存文件」必然报错的 bug ——
+    # FilePickerPlugin 的 "save" 分支读出了 Dart 传来的 bytes，却从未交给 delegate，
+    # 而 delegate.saveFile 开头就检查 bytesList 为空并抛
+    # PlatformException("", "Bytes are required on HarmonyOS & Android & IOS when saving a file")，
+    # 导致课表导出 .ics 保存必失败。见 vendor/file_picker_ohos 内的注释。
+    path: vendor/file_picker_ohos
+  chinese_font_library: ^1.1.0
+  ming_cute_icons: ^0.0.7
+  remixicon: ^4.9.1
+  based_split_view: ^1.2.0
+  permission_handler: ^12.0.1
+  # QR code scanner
+  # Output to system calendar
+  # Android/iOS 用 device_calendar_plus（完整 RRULE 支持），鸿蒙用适配版 device_calendar
+  device_calendar_plus: ^0.7.1
+  device_calendar: ^4.3.3
+  # 鸿蒙端 device_calendar 的原生实现是联邦包 device_calendar_ohos（fork 内 ohos/ 子目录），
+  # 根包只声明 android/ios 平台，必须显式依赖才会被 flutter 工具注册进 GeneratedPluginRegistrant，
+  # 否则运行时报 MissingPluginException（No implementation found for method hasPermissions）。
+  # 本地 vendor：修补 addEvent 回调的变量名 bug 与空值崩溃（2026-10-23 真机 jscrash：
+  # Cannot read property toString of undefined @ DeviceCalendarOhosPlugin.ts:281）。
+  # 除补丁外与 ref 4.3.3-ohos-1.0.1 的 ohos/ 子包一致；上游修复后可换回 git 依赖。
+  device_calendar_ohos:
+    path: vendor/device_calendar_ohos
+  # Homepage Widget
+  home_widget: 0.9.2+1
+  image: ^4.2.0
+  catcher_2: ^2.0.0
+  share_plus: ^13.1.0
+  # internationalized
+  device_info_plus: ^13.1.0
+  flutter_i18n: ^0.37.1
+  flutter_localizations:
+    sdk: flutter
+  intl:
+  timezone: ^0.10.1
+  flutter_local_notifications: ^22.0.1
+  flutter_zxing: ^3.0.1
+  flutter_html: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.3
+  build_runner: ^2.6.0
+  flutter_lints: ^6.0.0
+  pigeon: ^28.0.0
+  yaml: ^3.1.3
+  json_serializable: ^6.10.0
+
+# HarmonyOS (Flutter-OH 3.41.10-ohos-1.0.0) 适配插件覆盖，TAG 依据 CPF-Flutter 三方库适配表
+dependency_overrides:
+  # 上游 1.6.6 新增：flutter_html 3.0.0 调用了 html 0.15.7+ 已移除的 qs.matches()，
+  # 在 flutter_html 修复前把 html 钉在 0.15.6
+  # See: https://github.com/Sub6Resources/flutter_html/issues/1522
+  html: 0.15.6
+  # 本地 vendor：补上 HarmonyOS NEXT 平台支持（PageReportMode 等支持 ohos）
+  catcher_2:
+    path: vendor/catcher_2
+  # device_calendar fork 要求 timezone ^0.9.0，flutter_local_notifications fork 要求 ^0.10.0，
+  # 强制统一到 0.10.1（两 fork 均只用 Location/initializeTimeZones 等稳定 API，风险低）
+  timezone: 0.10.1
+  # device_calendar fork 固定 collection 1.17.0，与 flutter_test 的 1.19.1 冲突，强制统一
+  collection: 1.19.1
+  # flutter_local_notifications fork 原生 zonedSchedule 静默失败/API 用法问题，先本地 vendor 修补，待上游合并后删除
+  flutter_local_notifications:
+    path: vendor/flutter_local_notifications
+  # talker_flutter 日志查看器首帧 AppBar 高度只有 50，内容 ~146 → 每次进日志页都报
+  # 「A RenderFlex overflowed by 96 pixels」，而日志页正是给用户看日志的地方，必须消掉
+  talker_flutter:
+    path: vendor/talker_flutter
+  # flutter_zxing fork 依赖 git 版 image_picker，file_picker_ohos 依赖 hosted 版，统一指向 ohos 适配版
+  image_picker:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
+      ref: image_picker-v1.2.1-ohos-1.0.1
+      path: packages/image_picker/image_picker
+  shared_preferences:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
+      ref: shared_preferences-v2.5.4-ohos-1.0.1
+      path: packages/shared_preferences/shared_preferences
+  path_provider:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
+      ref: gitee/path_provider_ohos-v2.2.1
+      path: packages/path_provider/path_provider
+  url_launcher:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
+      ref: url_launcher_v6.3.2-ohos-1.0.1
+      path: packages/url_launcher/url_launcher
+  pigeon:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
+      ref: pigeon-v26.1.5-ohos-1.0.1
+      path: packages/pigeon
+  package_info_plus:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_plus_plugins.git
+      ref: package_info_plus-9.0.0-ohos-1.0.0
+      path: packages/package_info_plus/package_info_plus
+  device_info_plus:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_plus_plugins.git
+      ref: device_info_plus-12.3.0-ohos-1.0.0-beta.2
+      path: packages/device_info_plus/device_info_plus
+  share_plus:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_plus_plugins.git
+      ref: br_share_plus-v12.0.1_ohos
+      path: packages/share_plus/share_plus
+  permission_handler:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_permission_handler.git
+      ref: 12.0.1-ohos-1.0.0
+      path: permission_handler
+  fluttertoast:
+    git:
+      url: https://gitcode.com/CPF-Flutter/flutter_fluttertoast.git
+      ref: 9.0.0-ohos-1.0.0
+  flutter_zxing:
+    # fork 仓库依赖 github 上的 zxing-cpp 子模块，pub 拉取时不初始化且 GitHub 直连不稳定，
+    # 因此本地 vendor（子模块内容已按 fork 锁定的 commit 打包进 src/zxing）
+    path: vendor/flutter_zxing_ohos
+  flutter_native_splash:
+    git:
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_flutter_native_splash.git
+      ref: 2.4.7-ohos-1.0.0
+  device_calendar:
+    git:
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_device_calendar.git
+      ref: 4.3.3-ohos-1.0.1
+  restart_app:
+    git:
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_restart_app.git
+      ref: br_3.35_dev
+  calendar_date_picker2:
+    git:
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_calendar_date_picker2.git
+      ref: 2.0.1-ohos-1.0.0
+  # 上游 flex_color_scheme 8.3.1 的 TargetPlatform switch 未包含 ohos 分支（编译报错），
+  # 本地 vendor 并补上 ohos case
+  flex_color_scheme:
+    path: vendor/flex_color_scheme
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/Icon-App-iTunes.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon.png
+    - assets/Icon-App-iTunes-Background.png
+    - assets/Icon-App-iTunes.png
+    - assets/art/pda_empty_cover.jpg
+    - assets/art/pda_classtable_empty.webp
+    - assets/art/pda_girl_default.webp
+    # - assets/art/pda_girl_singing.png
+    - assets/art/pda_girl_reading.webp
+    - assets/art/qianfu_0.jpg
+    - assets/art/qianfu_1.jpg
+    - assets/art/qianfu_2.jpg
+    - assets/art/qianfu_3.jpg
+    - assets/art/qianfu_4.jpg
+    - assets/art/qianfu_5.jpg
+    - assets/art/qianfu_6.jpg
+    - assets/art/qianfu_7.jpg
+    # - assets/art/Fxemoji_u1F4BE_Kazami_Yuka.png
+    # - assets/art/anan_christmas.png
+    # - assets/art/Sakura_and_Tomoyo_Kimono.jpg
+    - assets/flutter_i18n/zh_CN.yaml
+    - assets/flutter_i18n/zh_TW.yaml
+    - assets/flutter_i18n/en_US.yaml
+    # - assets/captcha-solver-payment.tflite
+    # - assets/captcha-solver-zfw.tflite
+    - assets/ruisi_flutter/
+    - assets/ruisi_flutter/smiley/acn/
+    - assets/ruisi_flutter/smiley/tieba/
+    - assets/ruisi_flutter/smiley/jgz/

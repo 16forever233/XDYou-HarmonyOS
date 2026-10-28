@@ -1,0 +1,32 @@
+{
+  "app": {
+    // 本仓库只包含源码，不含任何签名材料（证书 / profile / 密码均已移除）。
+    // 构建前请为本工程配置你自己的签名：DevEco Studio → File → Project Structure → Signing Configs
+    // （或使用自动签名），然后把下面 products[0].signingConfig 填成对应签名配置名。
+    "signingConfigs": [],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "",
+        "compatibleSdkVersion": "6.0.0(20)",
+        "runtimeOS": "HarmonyOS",
+        "compileSdkVersion": "26.0.0",
+        "targetSdkVersion": "26.0.0",
+      }
+    ],
+    "buildModeSet": [
+      { "name": "debug" },
+      { "name": "profile" },
+      { "name": "release" }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        { "name": "default", "applyToProducts": ["default"] }
+      ]
+    }
+  ]
+}
