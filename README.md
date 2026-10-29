@@ -2,7 +2,7 @@
 <img src="./assets/icon.png" style="border-radius:16px; margin:10px; width:120px" alt="XDYou">
 <h1>XDYou（鸿蒙版）</h1>
 
-[![AppGallery](https://img.shields.io/badge/AppGallery-%E4%B8%8B%E8%BD%BD-brightgreen.svg)](https://appgallery.huawei.com/app/detail?id=com.xdyou.hmos&channelId=SHARE&source=appshare) [![下载量](https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%E9%87%8F-969-blue.svg)](https://appgallery.huawei.com/app/detail?id=com.xdyou.hmos&channelId=SHARE&source=appshare) [![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-blue.svg)](./LICENSE) ![HarmonyOS](https://img.shields.io/badge/HarmonyOS-API%2026-green)
+[![AppGallery](https://img.shields.io/badge/AppGallery-%E4%B8%8B%E8%BD%BD-brightgreen.svg)](https://appgallery.huawei.com/app/detail?id=com.xdyou.hmos&channelId=SHARE&source=appshare) [![下载量](https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%E9%87%8F-1004-blue.svg)](https://appgallery.huawei.com/app/detail?id=com.xdyou.hmos&channelId=SHARE&source=appshare) [![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-blue.svg)](./LICENSE) ![HarmonyOS](https://img.shields.io/badge/HarmonyOS-API%2026-green)
 
 </div>
 
